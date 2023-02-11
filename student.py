@@ -1,14 +1,14 @@
 import random
-class Student:
+class Dog:
 
-    def _init__(self, name):
+    def __init__(self, name):
         self.name = name
         self.gladness = 50
         self.progress = 0
         self.alive = True
 
     def to_study(self):
-        print("Time to study")
+        print("time to teach me commands!")
         self.progress += 0.12
         self.gladness -=3
 
@@ -16,8 +16,8 @@ class Student:
         print("I will sleep")
         self.gladness +=3
 
-    def to_chill(self):
-        print("Rest time")
+    def to_play(self):
+        print("Owner play with me!Gav")
         self.gladness +=5
         self.progress -= 0.1
 
@@ -44,6 +44,11 @@ class Student:
         elif live_cube == 2:
             self.to_sleep()
         elif live_cube == 3:
-            self.to_chill()
+            self.to_play()
         self.end_of_day()
 
+nick = Dog(name="Bobik")
+for day in range(365):
+    if nick.alive == False:
+        break
+    nick.live(day)
