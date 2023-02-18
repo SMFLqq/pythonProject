@@ -1,14 +1,17 @@
 import random
-class Dog:
+class Tymofii:
 
     def __init__(self, name):
         self.name = name
         self.gladness = 50
         self.progress = 0
         self.alive = True
+        self.job = Job
 
-    def to_study(self):
-        print("time to teach me commands!")
+    def to_money(self):
+        print("time to make money")
+        print("Your job is")
+
         self.progress += 0.12
         self.gladness -=3
 
@@ -17,7 +20,7 @@ class Dog:
         self.gladness +=3
 
     def to_play(self):
-        print("Owner play with me!Gav")
+        print("I will play in computer!")
         self.gladness +=5
         self.progress -= 0.1
 
@@ -27,7 +30,7 @@ class Dog:
             self.alive = False
         elif self.gladness <= 0:
             print("Depression")
-        elif self.progress > 5:
+        elif self.progress > 3:
             print("Passed externally")
             self.alive = False
 
@@ -35,19 +38,40 @@ class Dog:
         print(f"Gladness={self.gladness}")
         print(f"Progress = {round(self.progress, 2)}")
 
+
+
     def live(self, day):
         day = "Day" +str(day) + "of" + self.name + "life"
         print(f"{day:=^50}")
         live_cube = random.randint(1 , 3)
-        if live_cube == 1:
-            self.to_study()
-        elif live_cube == 2:
+        if live_cube == 2:
             self.to_sleep()
         elif live_cube == 3:
             self.to_play()
         self.end_of_day()
 
-nick = Dog(name="Bobik")
+
+class Job:
+    def __init__(self, job_list):
+        self.job=random.choice(list(job_list))
+        self.salary=job_list[self.job]["salary"]
+        self.gladness_less=job_list[self.job]["gladness_less"]
+
+
+
+job_list = {
+ "Java developer":
+                {"salary":50, "gladness_less": 10 },
+ "Python developer":
+                {"salary":40, "gladness_less": 3 },
+ "C++ developer":
+                {"salary":45, "gladness_less": 25 },
+ "Rust developer":
+                {"salary":70, "gladness_less": 1 },
+ }
+
+
+nick = Tymofii(name="Tymofii")
 for day in range(365):
     if nick.alive == False:
         break
