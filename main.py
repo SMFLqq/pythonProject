@@ -1,4 +1,9 @@
 import random
+import logging
+logging.basicConfig(level=logging.INFO,
+#                     filename="logs.log",filemode="w",
+#                     format="We have next logging message: "
+#                            "%(asctime)s:%(levelname)s-%(message)s")
 class Human:
     def __init__(self, name="Human", job=None, home=None, car=None):
         self.name = name
@@ -60,6 +65,7 @@ class Human:
                 return
         if manage == "fuel":
             print("I bought fuel")
+            logging.help("I bought fuel")
             self.money -= 100
             self.car.fuel += 100
         elif manage == "food":

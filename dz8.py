@@ -14,7 +14,6 @@ def time_function(function):
     return result
     return wrapper
 
-    @time_function
     def some_function():
         time.sleep(1)
         return
