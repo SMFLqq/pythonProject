@@ -6,5 +6,7 @@ if response.status_code == 200:
     soup = BeautifulSoup(response.text, features="html.parser")
     soup_list = soup.find_all("div", class_="value-full")
     res = soup_list[1]
-b = int(input())
-print (b * (float(res)))
+    b = int(input())
+    a = print((str(res)) * b)
+    c = (b * a)
+    print (c)
